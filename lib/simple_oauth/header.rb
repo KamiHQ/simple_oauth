@@ -29,7 +29,7 @@ module SimpleOAuth
       end
 
       def escape(value)
-        uri_parser.escape(value.to_s, /[^a-z0-9\-\.\_\~]/i)
+        ERB::Util.url_encode(value.to_s)
       end
       alias_method :encode, :escape
 
